@@ -1,5 +1,6 @@
 import React from 'react';
-import Card from './Card'
+import Card from './Card';
+import '../scss/Board.scss'
 
 const Board = (i) => {
     return (

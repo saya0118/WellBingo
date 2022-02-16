@@ -1,14 +1,18 @@
 import React from 'react'
+import '../scss/Card.scss'
 
 const Card = (props) => {
     return (
-        <div>
-            <button>
-
-            </button>
-        <button className="card">
-            {props.value}
-        </button>
+        <div className="card">
+            <button>burabura</button>
+            <button>burabura</button>
+            <button>burabura</button>
+            <button>burabura</button>
+            <button>burabura</button>
+            <button>burabura</button>
+            <button>burabura</button>
+            <button>burabura</button>
+            <button>burabura</button>
         </div>
     )
 }
