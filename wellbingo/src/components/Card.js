@@ -1,10 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../scss/Card.scss'
 
-const Card = (props) => {
+const Card = () => {
+
+    const [flip, setFlip] = useState(false);
+
+    const onHandleFlip = () => {
+        setFlip(true)
+        console.log(setFlip);
+    }
+
     return (
         <div className="card">
-            <button>burabura</button>
+            <button onClick={onHandleFlip}>burabura</button>
             <button>burabura</button>
             <button>burabura</button>
             <button>burabura</button>
