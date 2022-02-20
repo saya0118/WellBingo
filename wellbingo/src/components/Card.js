@@ -6,21 +6,24 @@ const Card = () => {
     const [flip, setFlip] = useState(false);
 
     const onHandleFlip = () => {
-        setFlip(true)
-        console.log(setFlip);
+        const clickedCard = flip;
+        clickedCard = !clickedCard
+        console.log(clickedCard);
     }
 
     return (
         <div className="card">
-            <button onClick={onHandleFlip}>burabura</button>
-            <button>burabura</button>
-            <button>burabura</button>
-            <button>burabura</button>
-            <button>burabura</button>
-            <button>burabura</button>
-            <button>burabura</button>
-            <button>burabura</button>
-            <button>burabura</button>
+            {
+                flip === true ? <button onClick={()=>onHandleFlip()} className="button-true">true</button> : <button className="button-false" onClick={()=>onHandleFlip()}>burabura</button>
+            }
+            <button className="button-false">burabura</button>
+            <button className="button-false">burabura</button>
+            <button className="button-false">burabura</button>
+            <button className="button-false">burabura</button>
+            <button className="button-false">burabura</button>
+            <button className="button-false">burabura</button>
+            <button className="button-false">burabura</button>
+            <button className="button-false">burabura</button>
         </div>
     )
 }

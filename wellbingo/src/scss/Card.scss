@@ -3,13 +3,21 @@
     text-align: center;
     
 
-    button {
+    .button-false {
         width: 250px;
         margin: 10px;
         height: 250px;
         background-color: pink;
         border: solid 1px black;
     
+    }
+
+    .button-true{
+        width: 250px;
+        margin: 10px;
+        height: 250px;
+        background-color: orange;
+        border: solid 1px black;
     }
     
     button:hover{
