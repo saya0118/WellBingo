@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
 import '../scss/Card.scss'
 
-const Card = ({card, handleChoice, flipped}) => {
+const Card = ({card}) => {
 
-    const handleClick = () => {
-        handleChoice(card)
-    }
+    // const handleClick = () => {
+    //     handleChoice(card)
+    // }
 
     return (
         <div className="card">
-            <div className={flipped ? "flipped" : ""}>
-                <button className="front" onClick={handleClick}/>
+            <div>
+                <button className="front"/>
                 <button className="back"/>
             </div>
         </div>
