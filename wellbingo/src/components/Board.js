@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from './Card';
 import '../scss/Board.scss'
 
-const Board = (i) => {
+const Board = () => {
+
+    const handleChoice = (card) => {
+        choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+    }
     return (
         <div>
-            <Card value={i}/>
+            <Card/>
         </div>
     )
 }
