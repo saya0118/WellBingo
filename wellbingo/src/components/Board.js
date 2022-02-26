@@ -1,34 +1,36 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import Card from './Card';
 import '../scss/Board.scss'
 
-const cardContent = [
-    {text: "drink 1L water"},
-    {text: "go for a walk"},
-    {text: "soak in sunshine"},
-    {text: "read a book"},
-    {text: "admire a friend"},
-    {text: "tell someone your gratitude"},
-    {text: "study 30min"},
-    {text: "see new people"},
-    {text: "do yoga"}
-]
-
-const cardContext = React.createContext(cardContent)
 
 const Board = () => {
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState(false);
+    const [horizontalRow, setHorizontalRow] = useState([]);
+    const [verticalRow, setVerticalRow] = useState([]);
 
-    // const handleChoice = (card) => {
-    // }
+
+    useEffect(() => {
+
+    }, )
+    
+    const cardContent = [
+        {text: "drink 1L water"},
+        {text: "go for a walk"},
+        {text: "soak in sunshine"},
+        {text: "read a book"},
+        {text: "admire a friend"},
+        {text: "tell someone of your gratitude"},
+        {text: "study 30min"},
+        {text: "meet new people"},
+        {text: "do yoga"}
+    ]
 
     return (
         <div className="board">
-            {cards.map(card => (
+            {cards.map((card, i) => (
                 <Card 
-                key={card.id}
-                // card={card}
-                // handleChoice={handleChoice}
+                key={i}
+                text={cardContent.text(i)}
                 />
             ))}
         </div>

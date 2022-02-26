@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
 import '../scss/Card.scss'
 
-const Card = ({card}) => {
+const Card = (props) => {
 
     // const handleClick = () => {
     //     handleChoice(card)
     // }
+    console.log(props.text);
 
     return (
         <div className="card">
             <div>
                 <button className="front"/>
-                <button className="back"/>
+                <button className="back">{props.text}</button>
             </div>
         </div>
     )
