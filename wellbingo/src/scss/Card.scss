@@ -1,39 +1,10 @@
-.card{
-    width: 60%;
-    text-align: center;
-    position: relative;
+.front {
+    max-width: 250px;
+    margin: 10px;
+    height: 250px;
+    background-color: pink;
+    border: solid 1px black;
 
-    // .flipped{
-    //     .front{
-    //         transform: rotateY(90deg);
-    //         transition: all ease-in 0.2s;
-    //         position: absolute;
-    //     }
-
-    //     .back{
-    //         transform: rotateY(90deg);
-    //         transition-delay: 0s;
-    //     }
-    // }
-    
-
-    .front {
-        width: 250px;
-        margin: 10px;
-        height: 250px;
-        background-color: pink;
-        border: solid 1px black;
-    
-    }
-
-    .back{
-        width: 250px;
-        margin: 10px;
-        height: 250px;
-        background-color: orange;
-        border: solid 1px black;
-    }
-    
     button:hover{
         cursor: pointer;
     }

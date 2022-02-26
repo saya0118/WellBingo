@@ -5,34 +5,83 @@ import '../scss/Board.scss'
 
 const Board = () => {
     const [cards, setCards] = useState(false);
-    const [horizontalRow, setHorizontalRow] = useState([]);
-    const [verticalRow, setVerticalRow] = useState([]);
+    // const [horizontalRow, setHorizontalRow] = useState([]);
+    // const [verticalRow, setVerticalRow] = useState([]);
 
 
     useEffect(() => {
+        const cardContent = [
+            [
+                {
+                    id: 0,
+                    text: "drink 1L water",
+                    checked: false
+                },
+                {
+                    id: 1,
+                    text: "tell someone of your gratitude",
+                    checked: false
+                },
+                {
+                    id: 2,
+                    text: "go for a walk",
+                    checked: false
+                }
+            ],
+            [
+                {
+                    id: 0,
+                    text: "soak in sunshine",
+                    checked: false
+                },
+                {
+                    id: 1,
+                    text: "read a book",
+                    checked: false
+                },
+                {
+                    id: 2,
+                    text: "admire a friend",
+                    checked: false
+                }
+            ],
+            [
+                {
+                    id: 0,
+                    text: "study 30min",
+                    checked: false
+                },
+                {
+                    id: 1,
+                    text: "meet new people",
+                    checked: false
+                },
+                {
+                    id: 2,
+                    text: "do yoga",
+                    checked: false
+                }
+            ]
+        ]
 
     }, )
     
-    const cardContent = [
-        {text: "drink 1L water"},
-        {text: "go for a walk"},
-        {text: "soak in sunshine"},
-        {text: "read a book"},
-        {text: "admire a friend"},
-        {text: "tell someone of your gratitude"},
-        {text: "study 30min"},
-        {text: "meet new people"},
-        {text: "do yoga"}
-    ]
+
+    // const changeTheColor = () => {
+    //     checked === true ?  : 
+    // }
 
     return (
         <div className="board">
-            {cards.map((card, i) => (
+            <Card
+            //  changeTheColor={changeTheColor}
+            />
+            {/* {cards.map(card => (
                 <Card 
-                key={i}
+                key={card.id}
                 text={cardContent.text(i)}
                 />
-            ))}
+            ))} */}
         </div>
     )
 }

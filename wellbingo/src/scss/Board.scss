@@ -1,10 +1,13 @@
 *{
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    font-family: Poppins, sans-serif;
 
     .board{
+        width: 800px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 250px 250px 250px;
         margin-top: 40px;
         gap: 20px;
     }
