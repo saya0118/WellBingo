@@ -10,15 +10,15 @@ const Card = (props) => {
 
     return (
         <>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
-                <button className="front" onClick={props.changeTheColor}/>
+                <button { props.flipped === true ? id="back" : id="front"} onClick={()=>props.toggleFlipped()}/>
+                <button id="front" onClick={props.toggleFlipped}/>
+                <button id="front" onClick={props.toggleFlipped}/>
+                <button id="front" onClick={props.toggleFlipped}/>
+                <button id="front" onClick={props.toggleFlipped}/>
+                <button id="front" onClick={props.toggleFlipped}/>
+                <button id="front" onClick={props.toggleFlipped}/>
+                <button id="front" onClick={props.toggleFlipped}/>
+                <button id="front" onClick={props.toggleFlipped}/>
                 {/* <button className="back">{props.text}</button> */}
         </>
     )

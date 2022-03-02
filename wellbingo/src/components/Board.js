@@ -4,77 +4,81 @@ import '../scss/Board.scss'
 
 
 const Board = () => {
-    const [cards, setCards] = useState(false);
+    const [cards, setCards] = useState([]);
+    const [flipped, setFlipped] = useState(false);
     // const [horizontalRow, setHorizontalRow] = useState([]);
     // const [verticalRow, setVerticalRow] = useState([]);
 
-
     useEffect(() => {
-        const cardContent = [
+        const cardsList = [
             [
                 {
                     id: 0,
                     text: "drink 1L water",
-                    checked: false
+                    flipped: false
                 },
                 {
                     id: 1,
                     text: "tell someone of your gratitude",
-                    checked: false
+                    flipped: false
                 },
                 {
                     id: 2,
                     text: "go for a walk",
-                    checked: false
+                    flipped: false
                 }
             ],
             [
                 {
                     id: 0,
                     text: "soak in sunshine",
-                    checked: false
+                    flipped: false
                 },
                 {
                     id: 1,
                     text: "read a book",
-                    checked: false
+                    flipped: false
                 },
                 {
                     id: 2,
                     text: "admire a friend",
-                    checked: false
+                    flipped: false
                 }
             ],
             [
                 {
                     id: 0,
                     text: "study 30min",
-                    checked: false
+                    flipped: false
                 },
                 {
                     id: 1,
                     text: "meet new people",
-                    checked: false
+                    flipped: false
                 },
                 {
                     id: 2,
                     text: "do yoga",
-                    checked: false
+                    flipped: false
                 }
             ]
         ]
 
     }, )
-    
 
-    // const changeTheColor = () => {
-    //     checked === true ?  : 
-    // }
+    const toggleFlipped = (index) => {
+        // setFlipped(index);
+        // const cardItem = cards[index];
+        // setCards(!flipped)
+        setFlipped(!flipped)
+        console.log(flipped);
+    }
 
     return (
         <div className="board">
             <Card
-            //  changeTheColor={changeTheColor}
+             toggleFlipped={toggleFlipped}
+             flipped={cardsList[i].text[i]}
             />
             {/* {cards.map(card => (
                 <Card 

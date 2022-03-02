@@ -1,11 +1,21 @@
-.front {
-    max-width: 250px;
+#front {
+    max-width: 200px;
     margin: 10px;
-    height: 250px;
-    background-color: pink;
-    border: solid 1px black;
-
-    button:hover{
+    height: 200px;
+    background-color: beige;
+    border: none;
+    &:hover{
         cursor: pointer;
     }
+}
+
+#back{
+    max-width: 200px;
+    margin: 10px;
+    height: 200px;
+    background-color: green;
+    border: none;
+    &:hover{
+        cursor: pointer;
+    } 
 }
