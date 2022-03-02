@@ -3,23 +3,14 @@ import '../scss/Card.scss'
 
 const Card = (props) => {
 
-    // const handleClick = () => {
-    //     handleChoice(card)
-    // }
-    // console.log(props.text);
+    // Google: "react className (inline style) conditional inline"
 
     return (
         <>
-                <button { props.flipped === true ? id="back" : id="front"} onClick={()=>props.toggleFlipped()}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                <button id="front" onClick={props.toggleFlipped}/>
-                {/* <button className="back">{props.text}</button> */}
+                {/* <button className={props.flipped ? "back" : "front"}> Sample</button> */}
+                <button className={ props.flipped ? "back" : "front"} onClick={()=> props.onClick(props.id)}>
+                    {props.text}
+                </button>
         </>
     )
 }

@@ -4,12 +4,10 @@ import '../scss/Board.scss'
 
 
 const Board = () => {
-    const [cards, setCards] = useState([]);
-    const [flipped, setFlipped] = useState(false);
-    // const [horizontalRow, setHorizontalRow] = useState([]);
-    // const [verticalRow, setVerticalRow] = useState([]);
+    const [ items, setItems ]  = useState([]);
 
     useEffect(() => {
+        // axios.get
         const cardsList = [
             [
                 {
@@ -30,62 +28,66 @@ const Board = () => {
             ],
             [
                 {
-                    id: 0,
+                    id: 3,
                     text: "soak in sunshine",
                     flipped: false
                 },
                 {
-                    id: 1,
+                    id: 4,
                     text: "read a book",
                     flipped: false
                 },
                 {
-                    id: 2,
+                    id: 5,
                     text: "admire a friend",
                     flipped: false
                 }
             ],
             [
                 {
-                    id: 0,
+                    id: 6,
                     text: "study 30min",
                     flipped: false
                 },
                 {
-                    id: 1,
+                    id: 7,
                     text: "meet new people",
                     flipped: false
                 },
                 {
-                    id: 2,
+                    id: 8,
                     text: "do yoga",
                     flipped: false
                 }
             ]
         ]
 
-    }, )
+        setItems(cardsList);
+    }, [])
 
-    const toggleFlipped = (index) => {
-        // setFlipped(index);
-        // const cardItem = cards[index];
-        // setCards(!flipped)
-        setFlipped(!flipped)
-        console.log(flipped);
+    const toggleFlipped = (id) => {
+      
+        const updated = items.map(item => {
+            return item.map(card => {
+                if (card.id === id) {
+                    card.flipped = !card.flipped
+                }
+                return card
+            })
+        })
+
+        // updated is bingo or not
+
+        setItems(updated)
     }
 
     return (
         <div className="board">
-            <Card
-             toggleFlipped={toggleFlipped}
-             flipped={cardsList[i].text[i]}
-            />
-            {/* {cards.map(card => (
-                <Card 
-                key={card.id}
-                text={cardContent.text(i)}
-                />
-            ))} */}
+            {items.map((item, index) => {
+                return item.map(card => {
+                    return <Card key={card.id} id={card.id} text={card.text} flipped={card.flipped} onClick={toggleFlipped}/>
+                })
+            })}
         </div>
     )
 }
