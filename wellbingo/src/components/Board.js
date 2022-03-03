@@ -68,3 +68,6 @@ const Board = () => {
 }
 
 export default Board;
+
+
+// https://codesandbox.io/s/bingo-forked-cpk2ir?file=/src/index.js
