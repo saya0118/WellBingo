@@ -1,68 +1,27 @@
 import React, {useState, useEffect} from 'react';
+
+import axios from '../config/axios.config';
+
 import Card from './Card';
 import '../scss/Board.scss'
 
 
 const Board = () => {
     const [ items, setItems ]  = useState([]);
+    const [ isBingo, setIsBingo ]  = useState(false);
 
     useEffect(() => {
-        // axios.get
-        const cardsList = [
-            [
-                {
-                    id: 0,
-                    text: "drink 1L water",
-                    flipped: false
-                },
-                {
-                    id: 1,
-                    text: "tell someone of your gratitude",
-                    flipped: false
-                },
-                {
-                    id: 2,
-                    text: "go for a walk",
-                    flipped: false
-                }
-            ],
-            [
-                {
-                    id: 3,
-                    text: "soak in sunshine",
-                    flipped: false
-                },
-                {
-                    id: 4,
-                    text: "read a book",
-                    flipped: false
-                },
-                {
-                    id: 5,
-                    text: "admire a friend",
-                    flipped: false
-                }
-            ],
-            [
-                {
-                    id: 6,
-                    text: "study 30min",
-                    flipped: false
-                },
-                {
-                    id: 7,
-                    text: "meet new people",
-                    flipped: false
-                },
-                {
-                    id: 8,
-                    text: "do yoga",
-                    flipped: false
-                }
-            ]
-        ]
+        axios.get('/todos').then(({data}) => {
 
-        setItems(cardsList);
+            const arrayChunk = ([...array], size) => {
+                return array.reduce(
+                    (acc, value, index) =>
+                        index % size ? acc : [...acc, array.slice(index, index + size)], []
+                );
+            };
+
+            setItems(arrayChunk(data, 3))
+        })
     }, [])
 
     const toggleFlipped = (id) => {
@@ -77,18 +36,34 @@ const Board = () => {
         })
 
         // updated is bingo or not
+        const won = isWon(updated);
+        if (won) setIsBingo(true);
 
         setItems(updated)
     }
 
+    const isWon = (updated) => {
+        const range = [0, 1, 2];
+
+        return (
+            range.find(row => range.every(column => updated[row][column].flipped)) !== undefined ||
+            range.find(column => range.every(row => updated[row][column].flipped)) !== undefined ||
+            range.every(row => updated[row][row].flipped) ||
+            range.every(row => updated[row][2 - row].flipped)
+        )
+    }
+
     return (
-        <div className="board">
-            {items.map((item, index) => {
-                return item.map(card => {
-                    return <Card key={card.id} id={card.id} text={card.text} flipped={card.flipped} onClick={toggleFlipped}/>
-                })
-            })}
-        </div>
+        <React.Fragment>
+            {isBingo && <h1>BINGO</h1>}
+            <div className="board">
+                {items.map((item, index) => {
+                    return item.map(card => {
+                        return <Card key={card.id} id={card.id} text={card.text} flipped={card.flipped} onClick={toggleFlipped}/>
+                    })
+                })}
+            </div>
+        </React.Fragment>
     )
 }
 

@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3002 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.26.0",
     "node-sass": "^7.0.1",
     "sass-loader": "^12.4.0"
   }
