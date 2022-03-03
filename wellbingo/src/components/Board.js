@@ -66,7 +66,6 @@ const Board = () => {
     }, [])
 
     const toggleFlipped = (id) => {
-      
         const updated = items.map(item => {
             return item.map(card => {
                 if (card.id === id) {
@@ -76,7 +75,11 @@ const Board = () => {
             })
         })
 
-        // updated is bingo or not
+        const isBingo = (cardsList) => cardsList.flipped === true;
+
+        const rowBingo = items.map(item=>{
+           return (item.every(isBingo) ? alert("bingo") : alert("not bingo"))
+        })
 
         setItems(updated)
     }

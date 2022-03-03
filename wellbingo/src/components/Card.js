@@ -7,7 +7,6 @@ const Card = (props) => {
 
     return (
         <>
-                {/* <button className={props.flipped ? "back" : "front"}> Sample</button> */}
                 <button className={ props.flipped ? "back" : "front"} onClick={()=> props.onClick(props.id)}>
                     {props.text}
                 </button>
