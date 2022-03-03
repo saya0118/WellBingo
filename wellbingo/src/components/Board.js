@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import Card from './Card';
-import '../scss/Board.scss'
-
+import Modal from './PopUp';
+import '../scss/Board.scss';
 
 const Board = () => {
     const [ items, setItems ]  = useState([]);
+    const [ bingo, setBingo ] = useState(false);
 
     useEffect(() => {
         // axios.get
@@ -75,23 +76,37 @@ const Board = () => {
             })
         })
 
-        const isBingo = (cardsList) => cardsList.flipped === true;
+        const isBingo = (card) => card.flipped === true;
 
-        const rowBingo = items.map(item=>{
-           return (item.every(isBingo) ? alert("bingo") : alert("not bingo"))
+        items.forEach(item => {
+            return (item.every(isBingo) ? setBingo(true) : console.log("false") )
         })
 
+       items.forEach((item,i)=> {
+           if(items[0][i].flipped && items[1][i].flipped && items[2][i].flipped){
+            setBingo(true);
+        }else if(items[0][0].flipped && items[1][1].flipped && items[2][2].flipped){
+            setBingo(true);
+        }else if(items[0][2].flipped && items[1][1].flipped && items[2][0].flipped){
+            setBingo(true);
+        }
+    })
         setItems(updated)
     }
 
     return (
-        <div className="board">
-            {items.map((item, index) => {
-                return item.map(card => {
-                    return <Card key={card.id} id={card.id} text={card.text} flipped={card.flipped} onClick={toggleFlipped}/>
-                })
-            })}
-        </div>
+        <>
+            {
+                bingo ? <Modal bingo={bingo} handleClose={()=>setBingo(false)}/> : console.log('non')
+            }
+            <div className="board">
+                {items.map((item, index) => {
+                    return item.map(card => {
+                        return <Card key={card.id} id={card.id} text={card.text} flipped={card.flipped} onClick={toggleFlipped}/>
+                    })
+                })}
+            </div>
+        </>
     )
 }
 
