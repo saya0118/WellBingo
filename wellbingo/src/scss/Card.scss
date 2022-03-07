@@ -1,8 +1,11 @@
 .front {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    border-radius: 30px;
     max-width: 200px;
     margin: 10px;
     height: 200px;
-    background-color: beige;
+    background-color: white;
     border: none;
     &:hover{
         cursor: pointer;
@@ -10,10 +13,13 @@
 }
 
 .back{
+    font-family: Georgia, serif;
+    font-size: 18px;
+    border-radius: 30px;
     max-width: 200px;
     margin: 10px;
     height: 200px;
-    background-color: green;
+    background-color: rgb(143, 121, 74);
     border: none;
     &:hover{
         cursor: pointer;
