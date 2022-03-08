@@ -1,22 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Routes, Router, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Router, Route} from "react-router-dom";
 import { Home } from '../Home/Home'
 import { EditPage } from '../EditPage/EditPage'
-import './scss/App.scss';
+import './App.scss';
 
 const App = () => {
     return (
         <div className="App">   
-            <Router>
+            <BrowserRouter>
                 <Routes>
-                    <Route path="/">
-                        <Home/>
-                    </Route>
-                    <Route path="/edit-page">
-                        <EditPage/>
-                    </Route>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/edit-page" element={<EditPage/>}/>
                 </Routes>
-            </Router>
+            </BrowserRouter>
         </div>
     )
 }

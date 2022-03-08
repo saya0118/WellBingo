@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Card from '../Card/Card';
 import Modal from '../PopUp/PopUp';
-import '../scss/Board.scss';
+import './Board.scss';
 
 export const Board = () => {
     const [ items, setItems ]  = useState([]);
