@@ -1,5 +1,6 @@
-import React from 'react'
-import '../scss/Card.scss'
+import React from 'react';
+import '../scss/Card.scss';
+// import { EditButton } from './EditIcon'
 
 const Card = (props) => {
 
