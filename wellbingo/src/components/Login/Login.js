@@ -1,5 +1,6 @@
 import React from 'react';
 import './Login.scss';
+import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 
 export const Login = () => {
@@ -8,7 +9,9 @@ export const Login = () => {
             <div className="input-container">
                 <TextField className="items" required size="small" fullWidth id="outlined-required" label="Username" variant="outlined" />
                 <TextField className="items" required size="small" fullWidth id="outlined-required" label="Password" variant="outlined" />
-                <button className="items button">Log in</button>
+                <Link to="/home">
+                    <button className="items button">Log in</button>
+                </Link>
                 <div className="items link">
                     <p>or</p>
                     <a>Create an account</a>
