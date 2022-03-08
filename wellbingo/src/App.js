@@ -1,27 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Routes, Router, Route, Link } from "react-router-dom";
-import Board from './components/Board';
-import { EditButton } from './components/EditIcon';
+import { BrowserRouter as Routes, Router, Route} from "react-router-dom";
+import { Home } from './components/Home'
 import { EditPage } from './components/EditPage'
 import './scss/App.scss';
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <div className="App">
-                    <h1>WellBingo</h1>
+        <div className="App">   
+            <Router>
+                <Routes>
                     <Route path="/">
-                        <EditButton/>
-                        <Board/>
+                        <Home/>
                     </Route>
-                    <Route path="/EditPage">
+                    <Route path="/edit-page">
                         <EditPage/>
                     </Route>
-                </div>
-
-            </Routes>
-        </Router>
+                </Routes>
+            </Router>
+        </div>
     )
 }
 

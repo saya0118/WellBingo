@@ -3,7 +3,7 @@ import Card from './Card';
 import Modal from './PopUp';
 import '../scss/Board.scss';
 
-const Board = () => {
+export const Board = () => {
     const [ items, setItems ]  = useState([]);
     const [ bingo, setBingo ] = useState(false);
 
@@ -109,5 +109,3 @@ const Board = () => {
         </>
     )
 }
-
-export default Board;
