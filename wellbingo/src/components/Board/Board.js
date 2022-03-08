@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import Card from './Card';
-import Modal from './PopUp';
+import Card from '../Card/Card';
+import Modal from '../PopUp/PopUp';
 import '../scss/Board.scss';
 
 export const Board = () => {

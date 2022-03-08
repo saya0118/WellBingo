@@ -1,6 +1,6 @@
 import React from "react";
-import { EditButton } from "./EditButton";
-import { Board } from "./Board";
+import { EditButton } from "../EditButton/EditButton";
+import { Board } from "../Board/Board";
 
 export const Home = () => {
   return (
