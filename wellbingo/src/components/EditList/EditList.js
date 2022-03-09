@@ -13,10 +13,12 @@ export const EditList = () => {
                     return item.map(card=> {
                         return (
                             <li key={i}>
-                                {card.text}
-                                <button className="edit-button">
-                                    <EditIcon color="action" sx={{fontSize: 15}} className="edit-icon"/>
-                                </button>
+                                <div className="text-box">
+                                    {card.text}
+                                </div>
+                                    <button className="edit-button">
+                                        <EditIcon color="action" sx={{fontSize: 15}} className="edit-icon"/>
+                                    </button>
                             </li>
                         )
                     })
