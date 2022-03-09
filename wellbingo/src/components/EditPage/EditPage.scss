@@ -20,17 +20,22 @@
         color: rgb(88, 84, 84);
       }
 
-      .done-button{
+      .done-button {
         float: right;
         margin: 19.92px 30px 19.92px 0px;
         width: 50px;
         height: 37px;
         font-size: 15px;
-        background-color: rgba(114, 173, 175, 0.767);
+        background-color: rgb(106, 141, 11);
         border-radius: 7px;
         color: white;
         border: none;
         box-shadow: rgb(109, 108, 108) 1px 2px 4px 0px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(86, 114, 7);
+        }
       }
     }
   }

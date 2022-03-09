@@ -1,6 +1,5 @@
 import React from "react";
 import "./Card.scss";
-// import { EditButton } from './EditIcon'
 
 const Card = (props) => {
   // Google: "react className (inline style) conditional inline"

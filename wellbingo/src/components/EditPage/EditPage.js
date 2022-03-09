@@ -1,7 +1,7 @@
 import React from "react";
 import "./EditPage.scss";
 import { Link } from "react-router-dom";
-import { EditList } from "../EditList/EditList";
+import EditList from "../EditList/EditList";
 
 export const EditPage = () => {
   return (

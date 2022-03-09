@@ -43,7 +43,6 @@ export const Board = () => {
       }
     });
     // setItems(updated)
-    return;
   };
 
   return (

@@ -8,10 +8,21 @@
         display: inline-block;
         width: 350px;
         text-align: left;
+
+        .input {
+          width: 250px;
+          height: 30px;
+          border-radius: 10px;
+          border: 2px gray solid;
+        }
       }
 
       .edit-button {
         display: inline-block;
+
+        &:hover {
+          background-color: rgba(190, 190, 179, 0.808);
+        }
       }
     }
   }
