@@ -9,6 +9,7 @@ import '../scss/Board.scss'
 const Board = () => {
     const [ items, setItems ]  = useState([]);
     const [ isBingo, setIsBingo ]  = useState(false);
+    const [ value, setValue ] = useState("");
 
     useEffect(() => {
         axios.get('/todos').then(({data}) => {
@@ -20,7 +21,7 @@ const Board = () => {
                 );
             };
 
-            setItems(arrayChunk(data, 3))
+            setItems(arrayChunk(data.items, 3))
         })
     }, [])
 
@@ -53,9 +54,17 @@ const Board = () => {
         )
     }
 
+    const onHandleAdd = () => {
+        axios.post('/todo', {
+            title: value
+        });
+    }
+
     return (
         <React.Fragment>
             {isBingo && <h1>BINGO</h1>}
+            <input type="text" value={value} onChange={(e) => setValue(e.target.value)}/>
+            <button onClick={onHandleAdd}>Add</button>
             <div className="board">
                 {items.map((item, index) => {
                     return item.map(card => {

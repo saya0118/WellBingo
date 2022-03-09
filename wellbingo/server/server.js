@@ -49,8 +49,13 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const routes = require("./routes/routes");
-app.use('/todos', routes);
+// app.get('/', (req, res) => {
+//     res.send('Hello World!')
+// })
+
+
+const todo = require("./routes/todo-router");;
+app.use('/api', todo);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
