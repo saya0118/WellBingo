@@ -7,7 +7,7 @@ export const EditButton = () => {
     return (
         <Link to="/edit-page">
             <button className="edit-button">
-                <EditIcon color="action" sx={{fontSize: 15}} className="edit-icon"/>
+               <EditIcon color="action" sx={{fontSize: 15}} className="edit-icon"/>
             </button>
         </Link>
     )

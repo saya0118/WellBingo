@@ -8,7 +8,6 @@ export const Board = () => {
     const [ bingo, setBingo ] = useState(false);
 
     useEffect(() => {
-        // axios.get
         const cardsList = [
             [
                 {

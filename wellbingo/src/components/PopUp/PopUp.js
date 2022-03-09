@@ -29,7 +29,7 @@ const PopUp = (props) => {
             >
                 <Box sx={style} className="box">
                     <Typography className="text" id="modal-modal-title" variant="h6" component="h2"> 
-                        Excellent!
+                        Excellent🎉
                     </Typography>
                     <Typography className="text" id="modal-modal-description" sx={{ mt: 2 }}>
                         You got a bingo today! Well done!

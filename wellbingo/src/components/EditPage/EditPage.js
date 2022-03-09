@@ -8,7 +8,7 @@ export const EditPage = () => {
             <h1>WellBingo</h1>
             <div className="edit-container">
                 <div className="h2-box">
-                    <h2>Create your own daily cards</h2>
+                    <h2>Change your own bingo cards</h2>
                 </div>
                 <EditList/>
             </div>
