@@ -1,4 +1,5 @@
 import React from 'react';
+import './PopUp.scss';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -26,12 +27,12 @@ const PopUp = (props) => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2"> 
-                        You are awesome!
+                <Box sx={style} className="box">
+                    <Typography className="text" id="modal-modal-title" variant="h6" component="h2"> 
+                        Excellent!
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        description
+                    <Typography className="text" id="modal-modal-description" sx={{ mt: 2 }}>
+                        You got a bingo today! Well done!
                     </Typography>
                     <Button onClick={props.handleClose}>Close</Button>
                 </Box>
