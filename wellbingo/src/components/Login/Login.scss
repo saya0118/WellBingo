@@ -2,14 +2,18 @@
     height: 340px;
     width: 450px;
     background-color: #ffffff;
-    // align-items: center;
 
     .input-container{
         width: 300px;
-        align-items: center;
         display: flex;
         flex-direction: column;
         padding-top: 50px;
+
+        .input{
+            align-items: initial;
+            margin-left: initial;
+            margin-right: initial;
+        }
 
         .items{
             margin-bottom: 20px;
@@ -23,6 +27,7 @@
             border: none;
             font-size: 16px;
             color: white;
+            text-align: center;
 
             &:hover{
                 cursor: pointer;

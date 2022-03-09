@@ -7,8 +7,8 @@ export const Login = () => {
     return (
         <div className="login-container">
             <div className="input-container">
-                <TextField className="items" required size="small" fullWidth id="outlined-required" label="Username" variant="outlined" />
-                <TextField className="items" required size="small" fullWidth id="outlined-required" label="Password" variant="outlined" />
+                <TextField className="items input" required size="small" fullWidth id="outlined-required" label="Username" variant="outlined" />
+                <TextField className="items input" required size="small" fullWidth id="outlined-required" label="Password" variant="outlined" />
                 <Link to="/home">
                     <button className="items button">Log in</button>
                 </Link>
