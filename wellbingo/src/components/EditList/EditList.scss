@@ -1,23 +1,18 @@
-.list-box{
+.list-box {
+  ul {
+    li {
+      list-style-type: decimal;
+      margin-bottom: 30px;
 
-    ul{
+      .text-box {
+        display: inline-block;
+        width: 350px;
+        text-align: left;
+      }
 
-        li{
-            list-style-type: decimal;
-            margin-bottom: 30px;
-
-            .text-box{
-                display: inline-block;
-                width: 350px;
-                text-align: left;
-            }
-            
-            .edit-button{
-                display: inline-block;
-            }
-        }
-
-
+      .edit-button {
+        display: inline-block;
+      }
     }
-
+  }
 }

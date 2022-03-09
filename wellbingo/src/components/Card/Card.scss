@@ -1,29 +1,29 @@
 .front {
-    box-shadow: rgb(53, 51, 51) 4px 4px 12px;
-    font-family: Georgia, serif;
-    font-size: 18px;
-    border-radius: 30px;
-    max-width: 200px;
-    margin: 10px;
-    height: 200px;
-    background-color: white;
-    border: none;
-    &:hover{
-        cursor: pointer;
-    }
+  box-shadow: rgb(53, 51, 51) 4px 4px 12px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  border-radius: 30px;
+  max-width: 200px;
+  margin: 10px;
+  height: 200px;
+  background-color: white;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.back{
-    box-shadow: inset rgb(59, 57, 57) 0px 0px 10px;
-    font-family: Georgia, serif;
-    font-size: 18px;
-    border-radius: 30px;
-    max-width: 200px;
-    margin: 10px;
-    height: 200px;
-    background-color: rgb(143, 121, 74);
-    border: none;
-    &:hover{
-        cursor: pointer;
-    } 
+.back {
+  box-shadow: inset rgb(59, 57, 57) 0px 0px 10px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  border-radius: 30px;
+  max-width: 200px;
+  margin: 10px;
+  height: 200px;
+  background-color: rgb(143, 121, 74);
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
