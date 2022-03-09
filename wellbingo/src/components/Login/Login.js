@@ -5,8 +5,9 @@ import TextField from "@mui/material/TextField";
 
 export const Login = () => {
   return (
-    <div className="login-container">
-      <div className="input-container">
+    <form className="login-container">
+      <fieldset className="input-container">
+        <label>
         <TextField
           className="items input"
           required
@@ -16,6 +17,8 @@ export const Login = () => {
           label="Username"
           variant="outlined"
         />
+        </label>
+        <label>
         <TextField
           className="items input"
           required
@@ -25,6 +28,7 @@ export const Login = () => {
           label="Password"
           variant="outlined"
         />
+        </label>
         <Link to="/home">
           <button className="items button">Log in</button>
         </Link>
@@ -32,7 +36,7 @@ export const Login = () => {
           <p>or</p>
           <a>Create an account</a>
         </div>
-      </div>
-    </div>
+      </fieldset>
+    </form>
   );
 };

@@ -8,16 +8,23 @@
     display: flex;
     flex-direction: column;
     padding-top: 50px;
+    border: none;
 
-    .input {
-      align-items: initial;
-      margin-left: initial;
-      margin-right: initial;
+    label{
+      width: 300px;
+      text-align: left;
+
+      .input {
+        align-items: initial;
+        margin-left: initial;
+        margin-right: initial;
+      }
+  
+      .items {
+        margin-bottom: 20px;
+      }
     }
 
-    .items {
-      margin-bottom: 20px;
-    }
 
     .button {
       width: 300px;
