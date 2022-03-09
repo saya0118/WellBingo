@@ -1,5 +1,6 @@
 import React from 'react';
 import './EditPage.scss';
+import { EditList } from '../EditList/EditList';
 
 export const EditPage = () => {
     return (
@@ -9,11 +10,7 @@ export const EditPage = () => {
                 <div className="h2-box">
                     <h2>Create your own daily cards</h2>
                 </div>
-                <div className="list-box">
-                    <ul>
-                        <li>lalala</li>
-                    </ul>
-                </div>
+                <EditList/>
             </div>
         </div>
     )
