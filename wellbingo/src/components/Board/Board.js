@@ -1,69 +1,72 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 import Card from '../Card/Card';
 import Modal from '../PopUp/PopUp';
 import './Board.scss';
 
 export const Board = () => {
-    const [ items, setItems ]  = useState([]);
+    // const [ items, setItems ]  = useState([]);
     const [ bingo, setBingo ] = useState(false);
 
-    useEffect(() => {
-        const cardsList = [
-            [
-                {
-                    id: 0,
-                    text: "drink 1L water",
-                    flipped: false
-                },
-                {
-                    id: 1,
-                    text: "tell someone of your gratitude",
-                    flipped: false
-                },
-                {
-                    id: 2,
-                    text: "go for a walk",
-                    flipped: false
-                }
-            ],
-            [
-                {
-                    id: 3,
-                    text: "soak in sunshine",
-                    flipped: false
-                },
-                {
-                    id: 4,
-                    text: "read a book",
-                    flipped: false
-                },
-                {
-                    id: 5,
-                    text: "admire a friend",
-                    flipped: false
-                }
-            ],
-            [
-                {
-                    id: 6,
-                    text: "study 30min",
-                    flipped: false
-                },
-                {
-                    id: 7,
-                    text: "meet new people",
-                    flipped: false
-                },
-                {
-                    id: 8,
-                    text: "do yoga",
-                    flipped: false
-                }
-            ]
-        ]
+    const items = useSelector(state => state.cardsList);
 
-        setItems(cardsList);
-    }, [])
+    // useEffect(() => {
+    //     const cardsList = [
+    //         [
+    //             {
+    //                 id: 0,
+    //                 text: "drink 1L water",
+    //                 flipped: false
+    //             },
+    //             {
+    //                 id: 1,
+    //                 text: "tell someone of your gratitude",
+    //                 flipped: false
+    //             },
+    //             {
+    //                 id: 2,
+    //                 text: "go for a walk",
+    //                 flipped: false
+    //             }
+    //         ],
+    //         [
+    //             {
+    //                 id: 3,
+    //                 text: "soak in sunshine",
+    //                 flipped: false
+    //             },
+    //             {
+    //                 id: 4,
+    //                 text: "read a book",
+    //                 flipped: false
+    //             },
+    //             {
+    //                 id: 5,
+    //                 text: "admire a friend",
+    //                 flipped: false
+    //             }
+    //         ],
+    //         [
+    //             {
+    //                 id: 6,
+    //                 text: "study 30min",
+    //                 flipped: false
+    //             },
+    //             {
+    //                 id: 7,
+    //                 text: "meet new people",
+    //                 flipped: false
+    //             },
+    //             {
+    //                 id: 8,
+    //                 text: "do yoga",
+    //                 flipped: false
+    //             }
+    //         ]
+    //     ]
+
+    //     setItems(cardsList);
+    // }, [])
 
     const toggleFlipped = (id) => {
         const updated = items.map(item => {
@@ -90,7 +93,7 @@ export const Board = () => {
             setBingo(true);
         }
     })
-        setItems(updated)
+        // setItems(updated)
     }
 
     return (
