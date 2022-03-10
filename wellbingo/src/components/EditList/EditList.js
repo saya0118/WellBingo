@@ -5,7 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DoneIcon from "@mui/icons-material/Done";
 import { Edit } from "../../actions/index";
 
-const EditList = () => {
+export const EditList = () => {
   const items = useSelector((state) => state.cardsList);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -23,9 +23,13 @@ const EditList = () => {
         {items.map((item, i) => {
           return item.map((card) => {
             return (
-              <li key={i}>
+              <li key={i} className="list">
                 <div className="text-box">
-                  {isEditing ? <input className="input"></input> : card.text}
+                  {isEditing ? (
+                    <input type="text" className="input" value={card.text} />
+                  ) : (
+                    card.text
+                  )}
                 </div>
                 <button className="edit-button">
                   {isEditing ? (
@@ -52,8 +56,8 @@ const EditList = () => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { list: state.cardsList };
-};
+// const mapStateToProps = (state) => {
+//   return { list: state.cardsList };
+// };
 
-export default connect(mapStateToProps, { Edit })(EditList);
+// export default connect(mapStateToProps, { Edit })(EditList);
