@@ -1,13 +1,42 @@
-import React, { useState } from "react";
-import { useSelector, connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./EditList.scss";
+import { Add } from "../../actions/index";
+
 import EditIcon from "@mui/icons-material/Edit";
 import DoneIcon from "@mui/icons-material/Done";
-import { Edit } from "../../actions/index";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+// import { Edit } from "../../actions/index";
 
 export const EditList = () => {
   const items = useSelector((state) => state.cardsList);
+  const dispatch = useDispatch();
+
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editText, setEditText] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+
+    const arrayChunk = ([...array], size) => {
+      console.log(array);
+      return array.reduce(
+        (acc, value, index) =>
+          index % size ? acc : [...acc, array.slice(index, index + size)],
+        []
+      );
+    };
+
+    setTodos(arrayChunk(items, 3));
+
+  }, [items]);
+
+  const onHandleTextChange = (e) => {
+    setTodo(e.target.value);
+  };
 
   const onHandleEdit = (index) => {
     setIsEditing(true);
@@ -17,11 +46,24 @@ export const EditList = () => {
     setIsEditing(false);
   };
 
+  const onHandleDelete = (index) => {};
+
   return (
     <div className="list-box">
+      <div className="input-add">
+        <input
+          type="text"
+          className="input"
+          value={todo}
+          onChange={onHandleTextChange}
+        />
+        <button className="add-button" onClick={() => dispatch(Add(todo))}>
+          Add
+        </button>
+      </div>
       <ul>
-        {items.map((item, i) => {
-          return item.map((card) => {
+        {todos.map((item) => {
+          return item.map((card, i) => {
             return (
               <li key={i} className="list">
                 <div className="text-box">
@@ -46,6 +88,14 @@ export const EditList = () => {
                       onClick={() => onHandleEdit(card.index)}
                     />
                   )}
+                </button>
+                <button className="delete-button">
+                  <DeleteIcon
+                    color="action"
+                    sx={{ fontSize: 15 }}
+                    className="edit-icon"
+                    onClick={() => onHandleDelete(card.index)}
+                  />
                 </button>
               </li>
             );

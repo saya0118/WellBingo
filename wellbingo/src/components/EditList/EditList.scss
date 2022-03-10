@@ -19,9 +19,26 @@
 
       .edit-button {
         display: inline-block;
+        margin-right: 10px;
 
         &:hover {
           background-color: rgba(190, 190, 179, 0.808);
+        }
+      }
+
+      .delete-button {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        background-color: beige;
+        border: none;
+        border-radius: 7px;
+        box-shadow: rgb(109, 108, 108) 3px 3px 7px 0px;
+
+        &:hover {
+          background-color: rgba(190, 190, 179, 0.808);
+          cursor: pointer;
         }
       }
     }

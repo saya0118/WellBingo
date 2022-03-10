@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import Modal from "../PopUp/PopUp";
@@ -6,11 +6,30 @@ import "./Board.scss";
 
 export const Board = () => {
   const [bingo, setBingo] = useState(false);
+  const [value, setValue] = useState("");
+  const [todos, setTodos] = useState([]);
 
   const items = useSelector((state) => state.cardsList);
 
+  useEffect(() => {
+
+    // filterで9個ランダムに選ぶ式
+
+    const arrayChunk = ([...array], size) => {
+      console.log(array);
+      return array.reduce(
+        (acc, value, index) =>
+          index % size ? acc : [...acc, array.slice(index, index + size)],
+        []
+      );
+    };
+
+    setTodos(arrayChunk(items, 3));
+
+  }, [items]);
+
   const toggleFlipped = (id) => {
-    const updated = items.map((item) => {
+    const updated = todos.map((item) => {
       return item.map((card) => {
         if (card.id === id) {
           card.flipped = !card.flipped;
@@ -21,29 +40,31 @@ export const Board = () => {
 
     const isBingo = (card) => card.flipped === true;
 
-    items.forEach((item) => {
+    todos.forEach((item) => {
       return item.every(isBingo) ? setBingo(true) : console.log("false");
     });
 
-    items.forEach((item, i) => {
-      if (items[0][i].flipped && items[1][i].flipped && items[2][i].flipped) {
+    todos.forEach((item, i) => {
+      if (todos[0][i].flipped && todos[1][i].flipped && todos[2][i].flipped) {
         setBingo(true);
       } else if (
-        items[0][0].flipped &&
-        items[1][1].flipped &&
-        items[2][2].flipped
+        todos[0][0].flipped &&
+        todos[1][1].flipped &&
+        todos[2][2].flipped
       ) {
         setBingo(true);
       } else if (
-        items[0][2].flipped &&
-        items[1][1].flipped &&
-        items[2][0].flipped
+        todos[0][2].flipped &&
+        todos[1][1].flipped &&
+        todos[2][0].flipped
       ) {
         setBingo(true);
       }
     });
-    // setItems(updated)
+    // settodos(updated)
   };
+
+  console.log(todos);
 
   return (
     <>
@@ -53,7 +74,7 @@ export const Board = () => {
         console.log("non")
       )}
       <div className="board">
-        {items.map((item, index) => {
+        {todos.map((item, index) => {
           return item.map((card) => {
             return (
               <Card
