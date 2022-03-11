@@ -6,56 +6,55 @@ const initialState = [
   },
   {
     id: 1,
-    text: "tell someone of your gratitude",
+    text: "do yoga",
     flipped: false,
   },
   {
     id: 2,
-    text: "go for a walk",
+    text: "meet someone",
     flipped: false,
   },
   {
     id: 3,
-    text: "soak in sunshine",
+    text: "call your family",
     flipped: false,
   },
   {
     id: 4,
-    text: "read a book",
+    text: "soak in the sun",
     flipped: false,
   },
   {
     id: 5,
-    text: "admire a friend",
+    text: "read a book",
     flipped: false,
   },
   {
     id: 6,
-    text: "study 30min",
+    text: "tell your gratitude of someone",
     flipped: false,
   },
   {
     id: 7,
-    text: "meet new people",
+    text: "study 30min",
     flipped: false,
   },
   {
     id: 8,
-    text: "do yoga",
+    text: "wake up earlier",
     flipped: false,
   },
-];
-
+]
 export const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LIST_ADDED":
       const newItem = {
-        id: state.length - 1,
+        id: state.length,
         text: action.payload,
         flipped: false,
       };
-
       return [...state, newItem];
+
     case "LIST_DELETED":
       state.splice(action.payload, 1);
       return [...state];

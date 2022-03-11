@@ -6,32 +6,41 @@ import "./Board.scss";
 
 export const Board = () => {
   const [bingo, setBingo] = useState(false);
-  const [value, setValue] = useState("");
   const [todos, setTodos] = useState([]);
 
   const items = useSelector((state) => state.cardsList);
 
   useEffect(() => {
+    const createShuffledArray = (items) => {
+      const tempArray = items;
+      for (let i = tempArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = tempArray[i];
+        tempArray[i] = tempArray[j];
+        tempArray[j] = tmp;
+      }
+      return tempArray;
+    };
 
-    // filterで9個ランダムに選ぶ式
+    const shuffledArray = createShuffledArray(items);
 
-    const arrayChunk = ([...array], size) => {
-      console.log(array);
-      return array.reduce(
+    const arrayChunk = ([...randomArray], size) => {
+      return randomArray.reduce(
         (acc, value, index) =>
-          index % size ? acc : [...acc, array.slice(index, index + size)],
+          index % size ? acc : [...acc, randomArray.slice(index, index + size)],
         []
       );
     };
 
-    setTodos(arrayChunk(items, 3));
+    const bingoSheet = arrayChunk(shuffledArray, 3).filter((x, i) => i < 3);
 
+    setTodos(bingoSheet);
   }, [items]);
 
-  const toggleFlipped = (id) => {
+  const toggleFlipped = (index) => {
     const updated = todos.map((item) => {
       return item.map((card) => {
-        if (card.id === id) {
+        if (card.id === index) {
           card.flipped = !card.flipped;
         }
         return card;
@@ -61,24 +70,22 @@ export const Board = () => {
         setBingo(true);
       }
     });
-    // settodos(updated)
+    setTodos(updated);
   };
-
-  console.log(todos);
 
   return (
     <>
       {bingo ? (
         <Modal bingo={bingo} handleClose={() => setBingo(false)} />
       ) : (
-        console.log("non")
+        console.log("not bingo")
       )}
       <div className="board">
         {todos.map((item, index) => {
           return item.map((card) => {
             return (
               <Card
-                key={card.id}
+                key={card.idid}
                 id={card.id}
                 text={card.text}
                 flipped={card.flipped}
