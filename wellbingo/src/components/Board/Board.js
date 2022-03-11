@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "../../config/axios.config";
 import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import Modal from "../PopUp/PopUp";
@@ -9,6 +10,13 @@ export const Board = () => {
   const [todos, setTodos] = useState([]);
 
   const items = useSelector((state) => state.cardsList);
+
+  useEffect(() => {
+    axios.get('/all').then((res) => {
+      console.log(res)
+      // store all items in redux store
+    })
+  }, [])
 
   useEffect(() => {
     const createShuffledArray = (items) => {
@@ -85,7 +93,7 @@ export const Board = () => {
           return item.map((card) => {
             return (
               <Card
-                key={card.idid}
+                key={card.id}
                 id={card.id}
                 text={card.text}
                 flipped={card.flipped}

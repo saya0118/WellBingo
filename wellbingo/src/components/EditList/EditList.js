@@ -12,28 +12,28 @@ export const EditList = () => {
   const dispatch = useDispatch();
 
   const [todo, setTodo] = useState("");
-  // const [index, setIndex] = useState([]);
+  const [index, setIndex] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [editText, setEditText] = useState("");
-  const [isEditing, setIsEditing] = useState(false);
 
   const onHandleTextChange = (e) => {
     setTodo(e.target.value);
   };
 
-  const onHandleClear = () => [setTodo("")];
+  const onHandleClear = () => setTodo("");
 
   const onHandleEditTextChange = (e) => {
     setEditText(e.target.value);
   };
 
   const setDefaultText = (index) => {
-    const label = editText[index];
+    const label = items[index].text;
     setEditText(label);
+    console.log(editText);
   };
 
   const onHandleEdit = (index) => {
-    setIsEditing(true);
+    setEditIndex(index);
     setDefaultText(index);
   };
 
@@ -46,7 +46,13 @@ export const EditList = () => {
           value={todo}
           onChange={onHandleTextChange}
         />
-        <button className="add-button" onClick={() => dispatch(Add(todo)) && onHandleClear()}>
+        <button
+          className="add-button"
+          onClick={() => {
+            dispatch(Add(todo));
+            onHandleClear();
+          }}
+        >
           Add
         </button>
       </div>
@@ -55,7 +61,7 @@ export const EditList = () => {
           return (
             <li key={i} className="list">
               <div className="text-box">
-                {isEditing ? (
+                {editIndex === i ? (
                   <input
                     type="text"
                     className="input"
@@ -67,11 +73,14 @@ export const EditList = () => {
                 )}
               </div>
               <button className="edit-button">
-                {isEditing ? (
+                {editIndex === i ? (
                   <DoneIcon
                     color="action"
                     sx={{ fontSize: 20 }}
-                    onClick={() => dispatch(Edit(editText, i))}
+                    onClick={() => {
+                      dispatch(Edit(editText, i));
+                      setEditIndex(null);
+                    }}
                   />
                 ) : (
                   <EditIcon
