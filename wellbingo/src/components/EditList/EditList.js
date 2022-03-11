@@ -30,7 +30,6 @@ export const EditList = () => {
   const setDefaultText = (index) => {
     const label = editText[index];
     setEditText(label);
-    // console.log(index);
   };
 
   const onHandleEdit = (index) => {
@@ -47,7 +46,7 @@ export const EditList = () => {
           value={todo}
           onChange={onHandleTextChange}
         />
-        <button className="add-button" onClick={() => dispatch(Add(todo))}>
+        <button className="add-button" onClick={() => dispatch(Add(todo)) && onHandleClear()}>
           Add
         </button>
       </div>
