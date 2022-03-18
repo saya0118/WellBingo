@@ -14,7 +14,6 @@ export const Board = () => {
   useEffect(() => {
     axios.get('/all').then((res) => {
       console.log(res)
-      // store all items in redux store
     })
   }, [])
 
