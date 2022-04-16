@@ -11,11 +11,15 @@ export const Board = () => {
 
   const items = useSelector((state) => state.cardsList);
 
+  const fetchTodos = () => {
+    axios.get("/todos").then((res) => {
+      console.log(res);
+    });
+  };
+
   useEffect(() => {
-    axios.get('/all').then((res) => {
-      console.log(res)
-    })
-  }, [])
+    fetchTodos();
+  }, []);
 
   useEffect(() => {
     const createShuffledArray = (items) => {
