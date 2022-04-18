@@ -21,20 +21,33 @@ getTodos = async (req, res) => {
 };
 
 editTodos = async (req, res) => {
-  await Todo.findById({}, (err, todos, id) => {
-    const todo = new Todo({});
+  await Todo.findById({}, (err) => {
+    const todo = new Todo({
+      text: String,
+    });
 
     if (err) {
       return res.status(400).json({ success: false, error: err });
     }
 
-    return res.status(200).json({ success: true, items: todos[id] });
+    return res.status(200).json({ success: true, items: todo.id });
   })
     .clone()
     .catch((err) => console.log(err));
 };
 
-updateTodos = (req, res) => {};
+updateTodos = (req, res) => {
+  await Todo.findByIdAndUpdate({}, (err, todos) => {
+
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+
+    return res.status(200).json({ success: true, items: todos.id });
+  })
+    .clone()
+    .catch((err) => console.log(err));
+};
 
 deleteTodos = async (req, res) => {
   await Todo.findByIdAndRemove({}, (err, todos) => {
@@ -42,7 +55,7 @@ deleteTodos = async (req, res) => {
       return res.status(400).json({ success: false, error: err });
     }
 
-    return res.status(200).json({ success: true, items: todos });
+    return res.status(200).json({ success: true, items: todos.id });
   })
     .clone()
     .catch((err) => console.log(err));
