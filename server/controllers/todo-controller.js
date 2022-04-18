@@ -14,12 +14,43 @@ getTodos = async (req, res) => {
         .json({ success: false, error: "Todo is not found." });
     }
 
-    return res.status(200).json({ success: true, items: todos })
-  }).clone().catch(err => console.log(err))
+    return res.status(200).json({ success: true, items: todos });
+  })
+    .clone()
+    .catch((err) => console.log(err));
 };
 
+editTodos = async (req, res) => {
+  await Todo.findById({}, (err, todos, id) => {
+    const todo = new Todo({});
 
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+
+    return res.status(200).json({ success: true, items: todos[id] });
+  })
+    .clone()
+    .catch((err) => console.log(err));
+};
+
+updateTodos = (req, res) => {};
+
+deleteTodos = async (req, res) => {
+  await Todo.findByIdAndRemove({}, (err, todos) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+
+    return res.status(200).json({ success: true, items: todos });
+  })
+    .clone()
+    .catch((err) => console.log(err));
+};
 
 module.exports = {
-    getTodos,
-}
+  getTodos,
+  editTodos,
+  updateTodos,
+  deleteTodos,
+};
