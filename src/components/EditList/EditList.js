@@ -1,20 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./EditList.scss";
 import { Add, Delete, Edit } from "../../actions/index";
-
+import axios from "../../config/axios.config";
 import EditIcon from "@mui/icons-material/Edit";
 import DoneIcon from "@mui/icons-material/Done";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export const EditList = () => {
-  const items = useSelector((state) => state.cardsList);
+  // const items = useSelector((state) => state.cardsList);
   const dispatch = useDispatch();
-
   const [todo, setTodo] = useState("");
-  const [index, setIndex] = useState([]);
+  const [items, setItems] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [editText, setEditText] = useState("");
+
+  const fetchTodoList = () => {
+    axios.get("/todos").then((res) => {
+      console.log(res);
+      setItems(res.data.items);
+    });
+  };
+
+  useEffect(() => {
+    fetchTodoList();
+  }, []);
 
   const onHandleTextChange = (e) => {
     setTodo(e.target.value);
@@ -37,6 +47,39 @@ export const EditList = () => {
     setDefaultText(index);
   };
 
+  const onHandleAdd = () => {
+    dispatch(Add(todo));
+    onHandleClear();
+    axios
+      .post("/add-todos", { text: todo })
+      .then(() => {
+        fetchTodoList();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const onHandleDelete = (item) => {
+    console.log(item);
+    axios
+      .delete(`/delete-todos/${item.id}`)
+      .then(() => {
+        fetchTodoList();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const onHandleUpdate = (item) => {
+    setEditIndex(null);
+    axios
+      .put(`/update-todos/${item.id}`, { text: editText })
+      .then(() => {
+        fetchTodoList();
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="list-box">
       <div className="add-box">
@@ -46,13 +89,7 @@ export const EditList = () => {
           value={todo}
           onChange={onHandleTextChange}
         />
-        <button
-          className="add-button"
-          onClick={() => {
-            dispatch(Add(todo));
-            onHandleClear();
-          }}
-        >
+        <button className="add-button" onClick={onHandleAdd}>
           Add
         </button>
       </div>
@@ -77,10 +114,7 @@ export const EditList = () => {
                   <DoneIcon
                     color="action"
                     sx={{ fontSize: 20 }}
-                    onClick={() => {
-                      dispatch(Edit(editText, i));
-                      setEditIndex(null);
-                    }}
+                    onClick={() => onHandleUpdate(item)}
                   />
                 ) : (
                   <EditIcon
@@ -96,7 +130,7 @@ export const EditList = () => {
                   color="action"
                   sx={{ fontSize: 15 }}
                   className="edit-icon"
-                  onClick={() => dispatch(Delete(i))}
+                  onClick={() => onHandleDelete(item)}
                 />
               </button>
             </li>

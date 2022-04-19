@@ -8,12 +8,16 @@ import "./Board.scss";
 export const Board = () => {
   const [bingo, setBingo] = useState(false);
   const [todos, setTodos] = useState([]);
-
-  const items = useSelector((state) => state.cardsList);
+  const [items, setItems] = useState([]);
+  // const items = useSelector((state) => state.cardsList);
 
   const fetchTodos = () => {
     axios.get("/todos").then((res) => {
-      console.log(res);
+      const data = res.data.items.map((item) => {
+        item.flipped = false;
+        return item;
+      });
+      setItems(data);
     });
   };
 
