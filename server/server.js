@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 const todo = require('./routes/todo-router');
 app.use('/api', todo);
 
-const PORT = process.env.PORT || 8080;
+const PORT = 'https://625e1b7355f8cf2223afcd37--silver-malasada-4fc0ae.netlify.app/' || 8080;
 app.listen(PORT, ()=> {
     console.log(`Server is running on port ${PORT}.`);
 })
