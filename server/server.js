@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 
-const mongoURI = process.env.REACT_APP_MONGO_API;
+const mongoURI = process.env.MONGODB_URI;
 
 require('./models/index');
 
