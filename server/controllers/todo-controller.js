@@ -20,50 +20,39 @@ getTodos = async (req, res) => {
     .catch((err) => console.log(err));
 };
 
-editTodos = async (req, res) => {
-  await Todo.findById({}, (err) => {
-    const todo = new Todo({
-      text: String,
+addTodos = (req, res) => {
+  const todo = new Todo(req.body);
+  todo
+    .save()
+    .then(() => {
+      return res
+        .status(200)
+        .json({ success: true, items: todo.id, yay: "yay" });
+    })
+    .catch((error) => {
+      console.log(err);
     });
-
-    if (err) {
-      return res.status(400).json({ success: false, error: err });
-    }
-
-    return res.status(200).json({ success: true, items: todo.id });
-  })
-    .clone()
-    .catch((err) => console.log(err));
 };
 
 updateTodos = (req, res) => {
-  await Todo.findByIdAndUpdate({}, (err, todos) => {
-
-    if (err) {
-      return res.status(400).json({ success: false, error: err });
-    }
-
-    return res.status(200).json({ success: true, items: todos.id });
-  })
-    .clone()
+  Todo.findByIdAndUpdate(req.params.id, req.body)
+    .then((data) => {
+      return res.status(200).json({ success: true, items: data });
+    })
     .catch((err) => console.log(err));
 };
 
-deleteTodos = async (req, res) => {
-  await Todo.findByIdAndRemove({}, (err, todos) => {
-    if (err) {
-      return res.status(400).json({ success: false, error: err });
-    }
-
-    return res.status(200).json({ success: true, items: todos.id });
-  })
-    .clone()
+deleteTodos = (req, res) => {
+  Todo.findByIdAndRemove(req.params.id)
+    .then(() => {
+      return res.status(200).json({ success: true, items: req.params.id });
+    })
     .catch((err) => console.log(err));
 };
 
 module.exports = {
   getTodos,
-  editTodos,
+  addTodos,
   updateTodos,
   deleteTodos,
 };

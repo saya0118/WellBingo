@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
 
-const mongoURI = 'mongodb+srv://wellbingo:wellbingo@cluster0.jier5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const mongoURI = process.env.REACT_APP_MONGO_API;
 
 require('./models/index');
 
