@@ -9,6 +9,8 @@ const Card = (props) => {
         <>
                 {/* <button className={props.flipped ? "back" : "front"}> Sample</button> */}
                 <button className={ props.flipped ? "back" : "front"} onClick={()=> props.onClick(props.id)}>
+                    <button onClick={() => props.onHandleDelete(props.id)}>Delete</button>
+                    <button onClick={() => props.onHandleUpdate(props.id)}>Edit</button>
                     {props.text}
                 </button>
         </>

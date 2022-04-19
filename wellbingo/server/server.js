@@ -18,6 +18,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+
 const keys = require("./config/db.config");
 
 require("./models/index");
@@ -54,7 +55,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // })
 
 
-const todo = require("./routes/todo-router");;
+const todo = require("./routes/todo-router");
 app.use('/api', todo);
 
 const PORT = process.env.PORT || 8080;

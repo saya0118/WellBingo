@@ -12,6 +12,10 @@ const Board = () => {
     const [ value, setValue ] = useState("");
 
     useEffect(() => {
+        fetchTodos();
+    }, [])
+
+    const fetchTodos = () => {
         axios.get('/todos').then(({data}) => {
 
             const arrayChunk = ([...array], size) => {
@@ -23,7 +27,7 @@ const Board = () => {
 
             setItems(arrayChunk(data.items, 3))
         })
-    }, [])
+    };
 
     const toggleFlipped = (id) => {
       
@@ -56,8 +60,24 @@ const Board = () => {
 
     const onHandleAdd = () => {
         axios.post('/todo', {
-            title: value
-        });
+            text: value
+        }).then(() => {
+            fetchTodos();
+        })
+    }
+
+    const onHandleDelete = id => {
+        axios.delete(`/${id}`).then(() => {
+            fetchTodos();
+        })
+    }
+
+    const onHandleUpdate = id => {
+        axios.put(`/${id}`, {
+            text: 'updated'
+        }).then(() => {
+            fetchTodos();
+        })
     }
 
     return (
@@ -68,7 +88,7 @@ const Board = () => {
             <div className="board">
                 {items.map((item, index) => {
                     return item.map(card => {
-                        return <Card key={card.id} id={card.id} text={card.text} flipped={card.flipped} onClick={toggleFlipped}/>
+                        return <Card key={card.id} id={card.id} text={card.text} flipped={card.flipped} onClick={toggleFlipped} onHandleDelete={onHandleDelete} onHandleUpdate={onHandleUpdate}/>
                     })
                 })}
             </div>
