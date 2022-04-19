@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 const todo = require('./routes/todo-router');
 app.use('/api', todo);
 
-const PORT = process.env.mongoURI || 8080;
+const PORT = mongoURI || 8080;
 app.listen(PORT, ()=> {
     console.log(`Server is running on port ${PORT}.`);
 })
