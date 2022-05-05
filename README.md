@@ -1,1 +1,1 @@
-<img src="/public/img/barner.png">
+<img src="/public/img/wellbingo-banner.png">
