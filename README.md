@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-<img src="/public/img/wellbingo-banner.png">
-=======
+
 <img src="/public/img/wellbingo-banner.png">
 
 ## Overview
