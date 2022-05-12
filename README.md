@@ -16,9 +16,18 @@ This app is for someone who wants to make a habit of small thing to achive a goa
 
 ## How does WellBingo work?
 1. Shows the bingo todo cards as defalt.
-2. You click once you've done a todo list.
-3. Pops the compliment message up when it's bingo.
-4. You can arrange the todo lists. You need to set them more than 9 lists and wellbingo automatically shuffle and show as a bingo board.
+![wellbingo-regular](https://user-images.githubusercontent.com/83236930/168005170-86e0ef27-9f88-41d5-916d-e510df9045cd.jpeg)
+
+3. You click once you've done a todo list.
+![wellbingo-click](https://user-images.githubusercontent.com/83236930/168005235-2c8fe562-20d7-4f6f-9aad-314d91275b3a.jpeg)
+
+4. Pops the compliment message up when it's bingo.
+![wellbingo-bingo](https://user-images.githubusercontent.com/83236930/168005276-d7ff078c-559c-410d-a398-e0790ba652e8.jpeg)
+
+
+5. You can arrange the todo lists. You need to set them more than 9 lists and wellbingo automatically shuffle and show as a bingo board.
+![wellbingo-edit](https://user-images.githubusercontent.com/83236930/168005333-1bbf7c6a-55cd-4244-a247-6155c1c12f29.jpeg)
+
 
 ## What brought me to build WellBingo?
 How do you cheer up people who know what they need to do but don't know where to start with. I was getting depression while I spent time in cold winter in Vancouver and I really wanted a small trigger to motivate me to live my life more effectively. However, many todo applications already released in the world were useful for people who is already motivated but not for the people who don't feel like doing anything. So I decided to create a todo list app that users can start small things and they can feel achivements and excitements with it.
