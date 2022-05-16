@@ -30,7 +30,7 @@ This app is for someone who wants to make a habit of small thing to achive a goa
 
 
 ## What brought me to build WellBingo?
-When I went through the winter time in Vancouver for the first time, I was struggling with keep motivating myself. I realized it's a great idea if I could create an app that made me motivated. Eventually, I decided to build this app not only as a Todo App but also a routine app so that users can start to make a habit of tiny things and can gain confidence by achiving them.
+When I went through the winter time in Vancouver for the first time, I was struggling with keep motivating myself because of the weather. I realized it's a great idea if I could create an app that made me motivated. Eventually, I decided to build this app not only as a Todo App but also a routine app so that users can start to make a habit of tiny things and can gain confidence by achiving them.
 
 ## Challenging part
 I built backend side for the first time so I struggled with understanding how the data flows on backend but the most challenging part was sorting bingo cards 3✖️3 on the board. I had to shuffle the todo elements, pick 9 items from there randomly, and show on the board as a 3✖️3 form. First, I needed to understand the algorithms for shuffling and punctuated by 3 elements using filter method. I'm familier with using MongoDB and Express, and it was a great opportunity to understand algorithms more deeply.
